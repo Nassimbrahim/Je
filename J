@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Vote</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .vote-button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        #vote-red {
+            background-color: red;
+        }
+        #vote-blue {
+            background-color: blue;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Votez pour votre couleur préférée</h1>
+    <button id="vote-red" class="vote-button">Rouge</button>
+    <button id="vote-blue" class="vote-button">Bleu</button>
+    <div id="result"></div>
+
+    <script>
+        let redVotes = 0;
+        let blueVotes = 0;
+
+        document.getElementById('vote-red').addEventListener('click', () => {
+            redVotes++;
+            displayResults();
+        });
+
+        document.getElementById('vote-blue').addEventListener('click', () => {
+            blueVotes++;
+            displayResults();
+        });
+
+        function displayResults() {
+            document.getElementById('result').innerText = 
+                `Rouge : ${redVotes} votes | Bleu : ${blueVotes} votes`;
+        }
+    </script>
+</body>
+</html>
